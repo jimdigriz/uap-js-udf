@@ -11,6 +11,7 @@ regexes.yaml:
 	curl -f --compressed -L -o $@ https://raw.githubusercontent.com/ua-parser/uap-core/master/regexes.yaml
 DISTCLEAN += regexes.yaml
 
+# https://www.commandlinefu.com/commands/view/12218/convert-yaml-to-json
 regexes.json: regexes.yaml
 	python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout)' < $< > $@
 CLEAN += regexes.json
