@@ -5,7 +5,7 @@ CLEAN =
 DISTCLEAN =
 
 .PHONY: all
-all:
+all: regexes.js
 
 regexes.yaml:
 	curl -f --compressed -L -o $@ https://raw.githubusercontent.com/ua-parser/uap-core/master/regexes.yaml
@@ -15,6 +15,10 @@ DISTCLEAN += regexes.yaml
 regexes.json: regexes.yaml
 	python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout)' < $< > $@
 CLEAN += regexes.json
+
+regexes.js: regexes.json
+	printf "const regexes = %s;\n" "$$(cat $<)" > $@
+CLEAN += regexes.js
 
 .PHONY: clean
 clean:

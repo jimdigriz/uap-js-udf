@@ -1,4 +1,7 @@
 .*
 !.gitignore
 
+compiler-latest.jar
+
+parser.js
 regexes.*

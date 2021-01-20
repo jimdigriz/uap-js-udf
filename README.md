@@ -15,13 +15,58 @@ The primary platform for this is [Google BigQuery](https://cloud.google.com/bigq
 You will need:
 
  * `curl`
+ * `git`
+ * `java`
  * `make`
  * `python3`
 
-Fetch [`regexes.yaml`](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) and convert it to JSON with:
+# Deploy
 
-    make regexes.json
+Run:
+
+    make
+
+Copy the following to a Google Storage account (eg. `gs://mybucket/uaparser/`):
+
+ * `uaparser.js`
+ * `regexes.js`
 
 # Usage
 
-...
+Use the following to use the parser:
+
+    CREATE TEMP FUNCTION uaparser(ua STRING)
+    RETURNS STRUCT<
+      user_agent STRUCT<
+        family STRING,
+        major STRING,
+        minor STRING,
+        patch STRING
+      >,
+      os STRUCT<
+        family STRING,
+        major STRING,
+        minor STRING,
+        patch STRING,
+        patchMinor STRING
+      >,
+      device STRUCT<
+        family STRING,
+        brand STRING,
+        model STRING
+      >
+    >
+    DETERMINISTIC
+    LANGUAGE js
+    OPTIONS (
+      -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
+      library = [
+        "gs://mybucket/uaparser/regexes.js",
+        "gs://mybucket/uaparser/uaparser.js"
+      ]
+    )
+    AS "return uaparser(ua);";
+    
+    SELECT user_agent, uaparser(user_agent) AS uaparser FROM `[PROJECT].[DATASET].[TABLE]` WHERE ...;
+
+**N.B.** remove the comment (leading '`--`') from the `description` if you make this a non-temporary function
