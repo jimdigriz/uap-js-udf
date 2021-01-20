@@ -70,8 +70,8 @@ If you only want to parse our the user agent, OS or device details, you can pick
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://requester-pays.coremem.com/uap-udf-js/regexes.js",
-        "gs://requester-pays.coremem.com/uap-udf-js/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
+        "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
       ]
     )
     AS "return uaparser.user_agent(ua);";
@@ -93,8 +93,8 @@ If you only want to parse our the user agent, OS or device details, you can pick
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://requester-pays.coremem.com/uap-udf-js/regexes.js",
-        "gs://requester-pays.coremem.com/uap-udf-js/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
+        "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
       ]
     )
     AS "return uaparser.os(ua);";
@@ -114,8 +114,8 @@ If you only want to parse our the user agent, OS or device details, you can pick
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://requester-pays.coremem.com/uap-udf-js/regexes.js",
-        "gs://requester-pays.coremem.com/uap-udf-js/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
+        "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
       ]
     )
     AS "return uaparser.device(ua);";
