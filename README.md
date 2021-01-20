@@ -54,7 +54,7 @@ Use the following to use the parser:
 
 ## Partial Parsing
 
-If you only want to parse our the user agent, OS or device details, you can pick the more specific function to make the query faster:
+If you only want to parse only the user agent, OS or device you can opt to use the more specific function to make the query faster:
 
 ### User Agent
 
