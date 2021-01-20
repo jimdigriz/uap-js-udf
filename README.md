@@ -1,4 +1,4 @@
-JavaScript SQL User-Defined Function (UDF) User-Agent Parser Library for the [uap-core](https://github.com/ua-parser/uap-core) project.
+JavaScript SQL [User-Defined Function (UDF)](https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions) User-Agent Parser Library for the [uap-core](https://github.com/ua-parser/uap-core) project.
 
 The primary platform for this is [Google BigQuery](https://cloud.google.com/bigquery).
 
