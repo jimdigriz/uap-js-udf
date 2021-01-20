@@ -17,19 +17,16 @@ uaparser.user_agent = function(ua) {
             const m = ua.match(re);
             return m ? {
                 family: el.family_replacement ? el.family_replacement.replace('$1', m[1]) : m[1],
-                major: el.v1_replacement || m[2] || '',
-                minor: el.v2_replacement || m[3] || '',
-                patch: el.v3_replacement || m[4] || ''
+                major: el.v1_replacement || m[2],
+                minor: el.v2_replacement || m[3],
+                patch: el.v3_replacement || m[4]
             } : false;
         };
         array[index] = fn;
         return fn;
     }
     const user_agent_default = {
-        family: 'Other',
-        major: '',
-        minor: '',
-        patch: ''
+        family: 'Other'
     };
     let user_agent;
     for (let index = 0; index < regexes.user_agent_parsers.length; index++) {
@@ -48,21 +45,17 @@ uaparser.os = function(ua) {
             const m = ua.match(re);
             return m ? {
                 family: el.os_replacement ? el.os_replacement.replace('$1', m[1]) : m[1],
-                major: el.os_v1_replacement ? el.os_v1_replacement.replace('$2', m[2]) : m[2] || '',
-                minor: el.os_v2_replacement ? el.os_v2_replacement.replace('$3', m[3]) : m[3] || '',
-                patch: el.os_v3_replacement ? el.os_v3_replacement.replace('$4', m[4]) : m[4] || '',
-                patchMinor: el.os_v4_replacement ? el.os_v4_replacement.replace('$5', m[5]) : m[5] || ''
+                major: el.os_v1_replacement ? el.os_v1_replacement.replace('$2', m[2]) : m[2],
+                minor: el.os_v2_replacement ? el.os_v2_replacement.replace('$3', m[3]) : m[3],
+                patch: el.os_v3_replacement ? el.os_v3_replacement.replace('$4', m[4]) : m[4],
+                patchMinor: el.os_v4_replacement ? el.os_v4_replacement.replace('$5', m[5]) : m[5]
             } : false;
         };
         array[index] = fn;
         return fn;
     }
     const os_default = {
-        family: 'Other',
-        major: '',
-        minor: '',
-        patch: '',
-        patchMinor: ''
+        family: 'Other'
     };
     let os;
     for (let index = 0; index < regexes.os_parsers.length; index++) {
@@ -86,17 +79,15 @@ uaparser.device = function(ua) {
             const m = ua.match(re);
             return m ? {
                 family: el.device_replacement ? replace(el.device_replacement, m) : m[1],
-                brand: el.brand_replacement ? replace(el.brand_replacement, m) : '',
-                model: el.model_replacement? replace(el.model_replacement, m) : m[1] || ''
+                brand: el.brand_replacement ? replace(el.brand_replacement, m) : undefined,
+                model: el.model_replacement? replace(el.model_replacement, m) : m[1]
             } : false;
         };
         array[index] = fn;
         return fn;
     }
     const device_default = {
-        family: 'Other',
-        brand: '',
-        model: ''
+        family: 'Other'
     };
     let device;
     for (let index = 0; index < regexes.device_parsers.length; index++) {

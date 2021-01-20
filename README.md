@@ -34,6 +34,13 @@ Copy the following to a Google Storage account (eg. `gs://mybucket/uaparser/`):
  * `uaparser.js`
  * `regexes.js`
 
+This can be done by using something like:
+
+    gsutil cp -J regexes.js uaparser.js gs://mybucket/uaparser/
+    gsutil acl ch -r -g example.com:R gs://mybucket/uaparser
+
+**N.B.** assumes `example.com` is the domain for your account, do change this to a user/group ACL if more suitable for your use case; public access is not recommended or you will pick up the billing for it
+
 # Usage
 
 Use the following to use the parser:
