@@ -19,9 +19,13 @@ You will need:
  * `make`
  * `python3`
 
+Check out the project with:
+
+    git clone https://gitlab.com/jimdigriz/uap-js-udf.git
+
 # Deploy
 
-Run:
+Go into the project directory and run:
 
     make
 
