@@ -12,6 +12,8 @@ The primary platform for this is [Google BigQuery](https://cloud.google.com/bigq
 
 # Usage
 
+The assets for this project have been published publically so that you may use them though note the bucket has [Requester Pays](https://cloud.google.com/storage/docs/requester-pays) enabled so [costs are incurred by the user](https://cloud.google.com/storage/pricing).
+
 Use the following to use the parser:
 
     CREATE TEMP FUNCTION uaparser(ua STRING)
