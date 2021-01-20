@@ -1,5 +1,5 @@
 // JavaScript SQL User-Defined Function (UDF) User-Agent Parser Library
-// Copyright (C) 2020, Alexander Clouter <alex@digriz.org.uk>
+// Copyright (C) 2021, Alexander Clouter <alex@digriz.org.uk>
 // SPDX-License-Identifier: AGPL-3.0-only
 
 function uaparser(ua) {
