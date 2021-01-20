@@ -27,3 +27,8 @@ clean:
 .PHONY: distclean
 distclean: clean
 	rm -rf $(DISTCLEAN)
+
+deploy: BUCKET ?= requester-pays.coremem.com
+deploy: regexes.js
+	gsutil cp -J regexes.js uaparser.js gs://$(BUCKET)/uap-js-udf/
+	gsutil acl ch -r -g AllAuth:R gs://$(BUCKET)/uap-js-udf

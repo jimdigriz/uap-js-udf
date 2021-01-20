@@ -10,37 +10,6 @@ The primary platform for this is [Google BigQuery](https://cloud.google.com/bigq
  * [Google BigQuery](https://cloud.google.com/bigquery)
      * [Standard SQL user-defined functions](https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions)
 
-# Preflight
-
-You will need:
-
- * `curl`
- * `git`
- * `make`
- * `python3`
-
-Check out the project with:
-
-    git clone https://gitlab.com/jimdigriz/uap-js-udf.git
-
-# Deploy
-
-Go into the project directory and run:
-
-    make
-
-Copy the following to a Google Storage account (eg. `gs://mybucket/uaparser/`):
-
- * `uaparser.js`
- * `regexes.js`
-
-This can be done by using something like:
-
-    gsutil cp -J regexes.js uaparser.js gs://mybucket/uaparser/
-    gsutil acl ch -r -g example.com:R gs://mybucket/uaparser
-
-**N.B.** assumes `example.com` is the domain for your account, do change this to a user/group ACL if more suitable for your use case; public access is not recommended or you will pick up the billing for it
-
 # Usage
 
 Use the following to use the parser:
@@ -71,8 +40,8 @@ Use the following to use the parser:
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://mybucket/uaparser/regexes.js",
-        "gs://mybucket/uaparser/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
+        "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
       ]
     )
     AS "return uaparser(ua);";
@@ -99,8 +68,8 @@ If you only want to parse our the user agent, OS or device details, you can pick
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://mybucket/uaparser/regexes.js",
-        "gs://mybucket/uaparser/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-udf-js/regexes.js",
+        "gs://requester-pays.coremem.com/uap-udf-js/uaparser.js"
       ]
     )
     AS "return uaparser.user_agent(ua);";
@@ -122,8 +91,8 @@ If you only want to parse our the user agent, OS or device details, you can pick
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://mybucket/uaparser/regexes.js",
-        "gs://mybucket/uaparser/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-udf-js/regexes.js",
+        "gs://requester-pays.coremem.com/uap-udf-js/uaparser.js"
       ]
     )
     AS "return uaparser.os(ua);";
@@ -143,10 +112,39 @@ If you only want to parse our the user agent, OS or device details, you can pick
     OPTIONS (
       -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
       library = [
-        "gs://mybucket/uaparser/regexes.js",
-        "gs://mybucket/uaparser/uaparser.js"
+        "gs://requester-pays.coremem.com/uap-udf-js/regexes.js",
+        "gs://requester-pays.coremem.com/uap-udf-js/uaparser.js"
       ]
     )
     AS "return uaparser.device(ua);";
     
     SELECT user_agent, uaparser_device(user_agent) AS uap_device FROM `[PROJECT].[DATASET].[TABLE]` WHERE ...;
+
+# Deploy
+
+If you want to maintain your own version of the assets you will need:
+
+ * `curl`
+ * `git`
+ * `make`
+ * `python3`
+
+Check out the project with:
+
+    git clone https://gitlab.com/jimdigriz/uap-js-udf.git
+
+Now run:
+
+    make
+
+Copy the following to a Google Storage account (eg. `gs://mybucket/uaparser/`):
+
+ * `uaparser.js`
+ * `regexes.js`
+
+This can be done by using something like:
+
+    gsutil cp -J regexes.js uaparser.js gs://mybucket/uaparser/
+    gsutil acl ch -r -g example.com:R gs://mybucket/uaparser
+
+**N.B.** assumes `example.com` is the domain for your account, do change this to a user/group ACL if more suitable for your use case; public access is not recommended or you will pick up the billing for it
