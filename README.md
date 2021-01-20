@@ -16,7 +16,6 @@ You will need:
 
  * `curl`
  * `git`
- * `java`
  * `make`
  * `python3`
 
