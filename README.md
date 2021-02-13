@@ -12,7 +12,7 @@ The primary platform for this is [Google BigQuery](https://cloud.google.com/bigq
 
 # Usage
 
-The assets for this project have been published publically so that you may use them though note the bucket has [Requester Pays](https://cloud.google.com/storage/docs/requester-pays) enabled so [costs are incurred by the user](https://cloud.google.com/storage/pricing).
+The assets for this project have been published publically so that you may use them though note the bucket has [Requester Pays](https://cloud.google.com/storage/docs/requester-pays) enabled so [costs are incurred by the user](https://cloud.google.com/storage/pricing); sounds worrying but in practice is roughly $0.10 for 10k queries.
 
 Use the following to use the parser:
 
