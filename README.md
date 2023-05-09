@@ -40,7 +40,7 @@ Use the following to use the parser:
     DETERMINISTIC
     LANGUAGE js
     OPTIONS (
-      -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
+      -- description = "User-Agent Parser (https://github.com/jimdigriz/uap-js-udf)",
       library = [
         "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
         "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
@@ -68,7 +68,7 @@ If you only want to parse only the user agent, OS or device you can opt to use t
     DETERMINISTIC
     LANGUAGE js
     OPTIONS (
-      -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
+      -- description = "User-Agent Parser (https://github.com/jimdigriz/uap-js-udf)",
       library = [
         "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
         "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
@@ -91,7 +91,7 @@ If you only want to parse only the user agent, OS or device you can opt to use t
     DETERMINISTIC
     LANGUAGE js
     OPTIONS (
-      -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
+      -- description = "User-Agent Parser (https://github.com/jimdigriz/uap-js-udf)",
       library = [
         "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
         "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
@@ -112,7 +112,7 @@ If you only want to parse only the user agent, OS or device you can opt to use t
     DETERMINISTIC
     LANGUAGE js
     OPTIONS (
-      -- description = "User-Agent Parser (https://gitlab.com/jimdigriz/uap-js-udf)",
+      -- description = "User-Agent Parser (https://github.com/jimdigriz/uap-js-udf)",
       library = [
         "gs://requester-pays.coremem.com/uap-js-udf/regexes.js",
         "gs://requester-pays.coremem.com/uap-js-udf/uaparser.js"
@@ -133,7 +133,7 @@ If you want to maintain your own version of the assets you will need:
 
 Check out the project with:
 
-    git clone https://gitlab.com/jimdigriz/uap-js-udf.git
+    git clone https://github.com/jimdigriz/uap-js-udf.git
 
 Now run:
 
